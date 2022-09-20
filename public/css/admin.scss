@@ -1,0 +1,202 @@
+// sass --watch app.scss:app.css
+
+@import './sass/variables.scss';
+@import './sass/alert.scss';
+@import './sass/center-block.scss';
+@import './sass/clear-fix.scss';
+@import './sass/flex.scss';
+@import './sass/label.scss';
+@import './sass/opacity.scss';
+@import './sass/radius.scss';
+@import './sass/reset-text.scss';
+@import './sass/resize.scss';
+@import './sass/shadow.scss';
+@import './sass/size.scss';
+@import './sass/text-overflow.scss';
+@import './sass/transform.scss';
+@import './sass/transition.scss';
+@import './sass/reset-anchor.scss';
+@import './sass/button.scss';
+@import './sass/margin-padding.scss';
+@import './sass/ul.scss';
+@import './sass/hover.scss';
+@import './sass/active.scss';
+@import './sass/grid.scss';
+@import './sass/animate.scss';
+@import './sass/uilities.scss';
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: $regular;
+    background-image: url(../img/bsv-background.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    &.flex {
+        @include flex();
+        @include flex-h-center();
+        @include flex-v-center();
+    }
+
+    &.overflow-hidden {
+        overflow: hidden;
+    }
+}
+
+
+.box-shadow {
+    @include box-shadow(0, 3px, 9px, $light-grey);
+}
+
+#adminHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: $white-color;
+    padding: 0 15px;
+    @extend .box-shadow;
+}
+
+.admin-main-wrapper {
+    width: calc(100% - 200px);
+    margin-left: 200px;
+    position: relative;
+
+    .task-heading-wrapper {
+        @include flex();
+        @include flex-h-space-between();
+        @include flex-v-center();
+        padding: 20px 0;
+        h1 {
+            margin: 0 0;
+            font-size: 16px;
+            font-family: $bold;
+            font-size: $x-large-font;
+        }
+    }
+
+    .table-responsive {
+        td, th {
+            background-color: $white-color;
+        }
+    }
+
+    .form-wrapper{
+        background-color: $white-color;
+        padding: 30px 30px;
+        @include borderRadius(10px);
+        @extend .box-shadow;
+    }
+}
+
+#success {
+    color: green;
+    text-align: center;
+}
+
+#success.none {
+    display: none;
+}
+
+.admin-login-wrapper {
+    position: relative;
+    background-color: $white-color;
+    background-clip: padding-box;
+    @include borderRadius(10px);
+    @extend .box-shadow;
+    outline: 0;
+    max-width: 450px;
+    margin: auto;
+    padding: 30px 40px;
+    h2 {
+        margin: 0 0;
+    }
+}
+
+.cutom-btn {
+    @include custom-btn;
+}
+
+.form-control {
+    height: 50px;
+    @include borderRadius(10px);
+}
+
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 200px;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+
+    &.none {
+        display: none;
+    }
+
+    .loader {
+        border: 16px solid $white-color;
+        border-radius: 50%;
+        border-top: 16px solid $primary-color;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+        margin-left: -24%;
+    }
+}
+
+
+.loader-wrapper-login {
+    @extend .loader-wrapper;
+    left: 0;
+    .loader {
+        margin-left: 0;
+    }
+}
+  
+.profile-wrapper {
+    padding: 20px 0 0 0;
+    font-family: $bold;
+    & > ul {
+        @include horizontal-ul();
+    }
+}
+
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+/* animation */
+
+
+.edit-delete {
+    display: inline-block;
+    width: 20px;
+}
+
+
+
+

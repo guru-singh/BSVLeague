@@ -1,0 +1,42 @@
+
+@import './variables.scss';
+@import './hover.scss';
+
+@mixin reset-ul {
+    list-style: none;
+    padding: 0 0;
+    margin: 0 0;
+    line-height: 30px;
+}
+
+@mixin defaultUl {
+  list-style: disc;
+  padding: 15px 15px;
+  margin: 0 0;
+}
+
+@mixin reset-font {
+    font-size: $medium-font - 2px;
+}
+
+@mixin verticla-ul {
+    @include reset-ul();
+    & > li {
+        display: block;
+        a {
+            @include reset-font();
+            @include onNavHover()
+        }
+    }
+}
+
+@mixin horizontal-ul {
+    @include reset-ul();
+    & > li {
+        display: inline-block;
+        margin-right: 10px;
+        a {
+            @include reset-font();
+        }
+    }
+}

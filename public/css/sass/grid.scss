@@ -1,0 +1,26 @@
+@import './variables.scss';
+@import './flex.scss';
+@import './shadow.scss';
+@import './hover.scss';
+@import './transform.scss';
+
+@mixin six-grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 0 0;
+    & > div {
+        text-align: center;
+        padding: 15px 15px 15px 15px;
+        margin: 15px;
+        box-shadow: 5px 5px 15px $box-shadow-color;
+        @include flex();
+        @include flex-h-center();
+        @include flex-v-center();
+        overflow: hidden;
+        @include transition();        
+         img {
+            @include onHoverImage(1.2, 1.2);
+        }
+    }
+}
+

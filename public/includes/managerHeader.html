@@ -1,0 +1,36 @@
+<div class="sidebar-nav">
+    <a href="/task-list">
+        <img src="../img/logo.png" alt="bsv logo" class="img-responsive" />
+    </a>
+    <ul class="nav nav-pills nav-stacked">
+        <li class=""><a href="/manager/my-dashboard">Dashboard</a></li>
+        <li class="manager" style="display: none;"><a href="/manager/pending-task">Pending Task</a></li>
+        <li class="manager" style="display: none;"><a href="/manager/pending-task?approve=true">Approved Task</a></li>
+        <li class=""><a href="/manager/perform-task">Perform New Task</a></li>
+        <li class=""><a href="/manager/my-task">My Performed Task</a></li>
+    </ul>
+</div>
+<script>
+
+    $(function () {
+        let allowedPost = ['ZBM', 'RBM', 'ADMIN', 'BH'],
+            userData = JSON.parse(localStorage.getItem("endUserData")),
+            designation = userData.post;
+        if (allowedPost.includes(designation)) {
+            $('.manager').each((i, e) => {
+                $(e).show();
+            });
+        }
+
+        //***********************************Dashboard***********************************
+        // let pathName = window.location.pathname;
+        // pathName = pathName.substr(1);
+
+        // if(pathName === 'manager/my-dashboard') {
+        //     $('#managerHeader').addClass('none');
+        //     $('.admin-main-wrapper').addClass('full-width');
+        // }
+        //***********************************Dashboard***********************************
+        
+    })
+</script>

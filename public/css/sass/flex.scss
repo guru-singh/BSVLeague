@@ -1,0 +1,252 @@
+@mixin flex {
+    display: flex;
+    display: -webkit-flex;
+}
+
+@mixin inline-flex {
+    display: flex;
+    display: -webkit-inline-flex;
+}
+
+@mixin flex-h-center () {
+    justify-content: center;
+}
+
+@mixin flex-h-start {
+    justify-content: flex-start;
+}
+
+@mixin flex-h-end {
+    justify-content: flex-end;
+}
+
+@mixin flex-h-space-around {
+    justify-content: space-around;
+}
+
+@mixin flex-h-space-between {
+    justify-content: space-between;
+}
+
+@mixin flex-h-space-evenly {
+    justify-content: space-evenly;
+}
+
+@mixin flex-h-strech {
+    align-items: stretch;
+}
+
+@mixin flex-v-stretch () {
+    justify-content: stretch;
+}
+
+@mixin flex-v-center () {
+    align-items: center;
+}
+
+@mixin flex-v-start {
+    align-items: flex-start;
+}
+
+@mixin flex-v-end {
+    align-items: flex-end;
+}
+
+@mixin flex-v-strech {
+    align-items: stretch;
+}
+
+@mixin flex-v-baseline {
+    align-items: baseline;
+}
+
+@mixin flex-v-space-between {
+    align-content: space-between;
+}
+
+@mixin flex-v-space-around {
+    align-content: space-around;
+}
+
+@mixin flex-column {
+    flex-direction: column;
+    -ms-flex-direction: column;
+}
+
+@mixin flex-column-reverse {
+    flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+}
+
+@mixin flex-row {
+    flex-direction: row;
+    -ms-flex-direction: row;
+}
+
+@mixin flex-row-reverse {
+    flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+}
+
+@mixin flex-wrap {
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+}
+
+@mixin flex-wrap-reserve {
+    flex-wrap: wrap-reverse;
+    -ms-flex-wrap: wrap-reverse;
+}
+
+@mixin flex-no-wrap {
+    flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+}
+
+@mixin flex-order-1 {
+    order: 1;
+}
+
+@mixin flex-order-2 {
+    order: 2;
+}
+
+@mixin flex-order-3 {
+    order: 3;
+}
+
+@mixin flex-order-4 {
+    order: 4;
+}
+
+@mixin flex-order-5 {
+    order: 5;
+}
+
+@mixin flex-order-6 {
+    order: 6;
+}
+
+@mixin flex-order-7 {
+    order: 7;
+}
+
+@mixin flex-order-8 {
+    order: 8;
+}
+
+@mixin flex-order-9 {
+    order: 9;
+}
+
+@mixin flex-order-10 {
+    order: 10;
+}
+
+@mixin flex-order-11 {
+    order: 11;
+}
+
+@mixin flex-order-12 {
+    order: 12;
+}
+
+@mixin flex-grow-1 {
+    flex-grow: 1;
+}
+
+@mixin flex-grow-2 {
+    flex-grow: 2;
+}
+
+@mixin flex-grow-3 {
+    flex-grow: 3;
+}
+
+@mixin flex-grow-4 {
+    flex-grow: 4;
+}
+
+@mixin flex-grow-5 {
+    flex-grow: 5;
+}
+
+@mixin flex-grow-6 {
+    flex-grow: 6;
+}
+
+@mixin flex-grow-7 {
+    flex-grow: 7;
+}
+
+@mixin flex-grow-8 {
+    flex-grow: 8;
+}
+
+@mixin flex-grow-9 {
+    flex-grow: 9;
+}
+
+@mixin flex-grow-10 {
+    flex-grow: 10;
+}
+
+@mixin flex-grow-11 {
+    flex-grow: 11;
+}
+
+@mixin flex-grow-12 {
+    flex-grow: 12;
+}
+
+@mixin flex-shrink-1 {
+    flex-shrink: 1;
+}
+
+@mixin flex-grow-1 {
+    flex-grow: 1;
+}
+
+@mixin flex-grow-2 {
+    flex-grow: 2;
+}
+
+@mixin flex-grow-3 {
+    flex-grow: 3;
+}
+
+@mixin flex-grow-4 {
+    flex-grow: 4;
+}
+
+@mixin flex-grow-5 {
+    flex-grow: 5;
+}
+
+@mixin flex-grow-6 {
+    flex-grow: 6;
+}
+
+@mixin flex-grow-7 {
+    flex-grow: 7;
+}
+
+@mixin flex-grow-8 {
+    flex-grow: 8;
+}
+
+@mixin flex-grow-9 {
+    flex-grow: 9;
+}
+
+@mixin flex-grow-10 {
+    flex-grow: 10;
+}
+
+@mixin flex-grow-11 {
+    flex-grow: 11;
+}
+
+@mixin flex-grow-12 {
+    flex-grow: 12;
+}

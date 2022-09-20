@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BSV : Performed Task</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/app.css" />
+</head>
+
+<body>
+    <header id="managerHeader"></header>
+    <main class="admin-main-wrapper container">
+
+        <div class="profile-wrapper text-right">
+            <ul>
+                <li><span id="userName"></span></li>
+                <li><a href="/manager/logout">Logout</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="task-heading-wrapper">
+                <h1>My Dashboard</h1>
+            </div>
+            <div id="divTotalTask"></div>
+            <div id="divApprovedTask"></div>
+            <div id="divPendingTask"></div>
+            <div id="divPointsEarned"></div>
+            <div id="divPointsYetEarned"></div>
+
+            <div class="task-heading-wrapper">
+                <h1>My team Dashboard</h1>
+            </div>
+            <div id="divMyTeamTotalTask"></div>
+            <div id="divMyTeamApprovedTask"></div>
+            <div id="divMyTeamPendingTask"></div>
+            <div id="divMyTeamPointsEarned"></div>
+            <div id="divMyTeamPointsYetEarned"></div>
+        </div>
+    </main>
+
+    <div class="loader-wrapper-login none">
+        <div class="loader"></div>
+    </div>
+
+     <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/axios.min.js"></script>
+    <script src="/js/front.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/managerv1.js"></script>
+    <script>
+        $(function() {
+           // console.log( "ready! -My Dashboard" );
+            setupMyDashboard();
+        });
+        
+            </script>
+</body>
+
+</html>

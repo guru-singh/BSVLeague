@@ -1,0 +1,30 @@
+@import './transition.scss';
+@mixin centerTransform($x:-50%, $y:-50%) {
+    transform: translate($x, $y);
+    -o-transform: translate($x, $y);
+    -moz-transform: translate($x, $y);
+    -ms-transform: translate($x, $y);
+    -webkit-transform: translate($x, $y);
+}
+
+@mixin scale($x:1.1, $y:1.1) {
+    @include transition();
+    &:hover {
+        transform: scale($x, $y);
+        -o-transform: scale($x, $y);
+        -moz-transform: scale($x, $y);
+        -ms-transform: scale($x, $y);
+        -webkit-transform: scale($x, $y);
+    }
+}
+
+@mixin rotate($x:5deg) {
+    @include transition();
+    &:hover {
+        transform: rotate($x);
+        -o-transform: rotate($x);
+        -moz-transform: rotate($x);
+        -ms-transform: rotate($x);
+        -webkit-transform: rotate($x);
+    }
+}

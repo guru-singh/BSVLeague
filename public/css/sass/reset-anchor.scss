@@ -1,0 +1,23 @@
+@import './variables.scss';
+@import './transition.scss';
+@import './shadow.scss';
+
+@mixin reset-a() {
+    text-decoration: none;
+    color: inherit;
+    font-family: inherit;
+    &:hover, &:focus {
+        text-decoration: none;
+    }
+}
+
+a {
+    @include reset-a();
+}
+
+@mixin shadow-on-hover() {
+    @include transition();
+    &:hover {
+        @include box-shadow(1px, 1px, 20px, $white-color)
+    }
+}

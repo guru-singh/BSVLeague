@@ -1,0 +1,23 @@
+@mixin box-shadow($h, $v, $r, $color) {
+    box-shadow: $h $v $r $color;
+    -moz-box-shadow: $h $v $r $color;
+    -webkit-box-shadow: $h $v $r $color;
+}
+
+@mixin no-box-shadow() {
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+@mixin text-shadow($h, $v, $r, $color) {
+   text-shadow: $h $v $r $color;
+   -moz-text-shadow: $h $v $r $color;
+   -webkit-text-shadow: $h $v $r $color;
+}
+
+@mixin no-text-shadow() {
+    text-shadow: none;
+    -moz-text-shadow: none;
+    -webkit-text-shadow: none;
+}

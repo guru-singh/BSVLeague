@@ -1,0 +1,47 @@
+
+@import './variables.scss';
+@import './transition.scss';
+@import './shadow.scss';
+@import './scale.scss';
+
+@mixin onNavHover() {
+    @include transition();    
+    &:hover, &:focus {
+        color: $primary-color;
+    }
+}
+
+@mixin onHoverChangeChildColor {
+    &:hover,
+    &:focus {
+        @include transition();
+        color: $primary-dull-color !important;
+        svg {
+            @include transition();
+            fill: $primary-dull-color !important;
+        }
+    }
+}
+
+@mixin onDropdownHover() {
+    @include transition();
+    color:$white-color;
+    &:hover, &:focus {
+        color: $white-color;
+        opacity: 0.5;
+    }
+}
+
+@mixin onHoverImage($x:1.1, $y:1.1) {
+    @include transition();
+    &:hover {
+        @include customScale($x, $y);
+    }
+}
+
+@mixin boxBoxHover {
+    @include transition();
+    &:hover {
+        @include customScale(1.05, 1.05);
+    }
+}

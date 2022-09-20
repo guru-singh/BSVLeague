@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BSV : Manager Login </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/app.css" />
+</head>
+
+<body class="flex">
+    <main>
+        <div class="container">
+            <div class="admin-login-wrapper">
+                <form class="login-form" id="frm1" onsubmit="validateManagerUserDetails();return false;">
+                    <h2 class="text-center">
+                        <img src="../../img/logo.png" alt="bsv logo" class="img-resposnive" />
+                    </h2>
+                    <div class="form-group">
+                        <label for="usr">Username</label>
+                        <input type="text" placeholder="test@bsv.com" id="username" name="username" class="form-control" id="usr" value="pradipkumar.mishra@bsvl.com" />
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="pwd">Password</label>
+                        <input type="password" id="password" name="password" placeholder="password" class="form-control" id="pwd" value="BSV@112233" />
+                    </div>
+    
+                    <div class="login-btn-wrapper">
+                        <button class="btn cutom-btn">Login In</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <div class="loader-wrapper-login none">
+        <div class="loader"></div>
+    </div>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/axios.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/manager.js"></script>
+</body>
+
+</html>

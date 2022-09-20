@@ -1,0 +1,16 @@
+USP_INSERT_TASK
+
+    @taskId smallInt = null,
+    @taskName nvarchar(255),
+    @taskDescp nvarchar(255),
+    @isDisable BIT
+)
+
+create
+USP_INSERT_TASK null, 'tes222t', 'Ajay', 0
+
+update
+USP_INSERT_TASK 2, 'tes222t', 'Ajay', 0
+
+
+USP_FETCH_TASK @showAll bit = null
