@@ -67,7 +67,7 @@ exports.postApi = (req, res, next) => {
 
         session = req.session;
         session.userid = req.body.username;
-       // console.log(req.session)
+        // console.log(req.session)
         res.status(200).json(response);
       });
       break;
@@ -98,6 +98,11 @@ exports.postApi = (req, res, next) => {
 
     case 'taskdelete':
       adminCommonCtrl.deleteTask(req.body).then((response) => {
+        res.status(200).json(response);
+      });
+      break;
+    case 'admindashboardData':
+      adminCommonCtrl.admindashboardData(req.body).then((response) => {
         res.status(200).json(response);
       });
       break;

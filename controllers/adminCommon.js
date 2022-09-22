@@ -177,3 +177,33 @@ exports.deleteTask = (objParam) => {
   });
 };
 
+
+exports.admindashboardData = (objParam) => {
+  return new Promise((resolve) => {
+    var dbConn = new sql.ConnectionPool(dbConfig.dataBaseConfig);
+    dbConn
+      .connect()
+      .then(function () {
+        var request = new sql.Request(dbConn);
+        request
+          // .input("taskId", sql.Int, objParam.id)
+          // .input("taskName", sql.NVarChar, objParam.taskName)
+          // .input('points', sql.BigInt, objParam.taskPoint)
+          // .input("taskDescp", sql.NVarChar, objParam.tastDescription)
+          // .input("isDisable", sql.Bit, objParam.isDisabled)
+          .execute("USP_BSV_LEAGUE_ADMIN_DASHBOARD_DATA")
+          .then(function (resp) {
+            resolve(resp.recordsets);
+            dbConn.close();
+          })
+          .catch(function (err) {
+            //console.log(err);
+            dbConn.close();
+          });
+      })
+      .catch(function (err) {
+        //console.log(err);
+      });
+  });
+};
+
