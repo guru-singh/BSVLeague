@@ -41,9 +41,9 @@ exports.userLogin = (objParam) => {
         .then(function () {
           var request = new sql.Request(dbConn);
           request
-            .input("empTaskId", sql.Int, null)
-            .input("taskId", sql.Int, objParam.body.taskId)
-            .input("empId", sql.Int, objParam.body.empId)
+          .input("empTaskId", sql.Int, null)
+          .input("taskId", sql.Int, objParam.body.taskId)
+          .input("empId", sql.Int, objParam.body.empId)
             .input("isApproved", sql.Bit, true)
             .execute("USP_ADD_NEW_EMP_TASK")
             .then(function (resp) {
@@ -51,7 +51,7 @@ exports.userLogin = (objParam) => {
               dbConn.close();
             })
             .catch(function (err) {
-              //console.log(err);
+             //console.log(err);
               dbConn.close();
             });
         })
@@ -133,6 +133,33 @@ exports.userLogin = (objParam) => {
         });
     });
   }
+ 
+
+  exports.getDashboardGraphData = (objParam) => {
+    return new Promise((resolve) => {
+      var dbConn = new sql.ConnectionPool(dbConfig.dataBaseConfig);
+      dbConn
+        .connect()
+        .then(function () {
+          var request = new sql.Request(dbConn);
+          request
+            .input("empID", sql.Int, objParam.body.empId)
+            .execute("USP_BSV_LEAGUE_MY_DASHBOARD")
+            .then(function (resp) {
+              resolve(resp.recordsets);
+              dbConn.close();
+            })
+            .catch(function (err) {
+              dbConn.close();
+            });
+        })
+        .catch(function (err) {
+          //console.log(err);
+        });
+    });
+  }
+
+
 
   exports.approvedTask = (objParam) => {
     return new Promise((resolve) => {
@@ -159,4 +186,3 @@ exports.userLogin = (objParam) => {
   }
 
 
- 

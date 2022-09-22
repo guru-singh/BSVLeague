@@ -120,14 +120,14 @@ function validatePendingTask() {
         axios
             .post("/manager/api", param)
             .then((response) => {
-               console.log(response); 
+                console.log(response);
             })
             .catch((err) => {
                 console.log("inside catch");
                 console.log(err);
             });
     }
-    window.location.href = '/manager/clear-session';
+     window.location.href = '/manager/clear-session';
 }
 
 function setupPerformNewTaskPage() {
@@ -336,10 +336,60 @@ function loadMyDashboad() {
             });
 
     }
+    // top user in my category
+}
 
+function myDashboardChartData() {
+    let userData = JSON.parse(localStorage.getItem("endUserData")),
+        param = {
+            method: 'dashboardData',
+            empId: userData.empId
+        };
+    axios
+        .post("/manager/api", param).then((response) => {
+            console.clear();
+            console.log(response.data);
+            // task performed as my collegues
+            console.table(response.data[0])
+            console.log('Task Performed Today- ' + response.data[1][0].TaskPerformedToday)
+            console.log('Task Performed Yesterday- ' + response.data[2][0].TaskPerformedYesterday)
+            console.log('Task Performed last week- ' + response.data[3][0].TaskPerformedLastWeek)
+            console.log('Task Performed last 15 days- ' + response.data[4][0].TaskPerformedLast15days)
+            console.log('Task Performed last 30 days - ' + response.data[5][0].TaskPerformedLast30days)
+            console.log('DAY WISE - not approved')
+            console.table(response.data[6].filter((rec) => { return !rec.isApproved }))
+            console.log('DAY WISE - approved')
+            console.table(response.data[6].filter((rec) => { return rec.isApproved }))
+            let chartData = [['Name', 'Points Earned', 'Task Performed']];
+            response.data[0].forEach(rec => {
+                let tmpArr = []
+                tmpArr.push(rec.firstName, rec.pointsEarned, rec.totalTaskPerformed)
+                chartData.push(tmpArr);
+            })
 
+            var data = google.visualization.arrayToDataTable(chartData);
+
+            var options = {
+                title: 'Task performed by my Collegues',
+                vAxis: { title: 'Points' },
+                hAxis: { title: 'My Collegues' },
+                seriesType: 'bars',
+                series: { 4: { type: 'line' } },
+                height: 250,
+                width: 850,
+                bar: {groupWidth: "25%"},
+                backgroundColor: { fill:'transparent' }
+            };
+
+            var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+
+        }).catch((err) => {
+            console.log(err);
+        });
 
 }
+
 /* ************************************ My Dashboard ************************************/
 
 /* ************************************ PENDING TASKS ************************************/

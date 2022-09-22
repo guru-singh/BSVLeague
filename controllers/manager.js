@@ -34,7 +34,7 @@ exports.clearSession = (req, res, next) => {
 
 
 exports.postApi = (req, res, next) => {
-
+  
   switch (req.body.method) {
 
     case 'managerLogin':
@@ -89,8 +89,8 @@ exports.postApi = (req, res, next) => {
         res.status(200).json(response.recordset);
       });
       break;
-
-    case 'createPerfomTask':
+   
+      case 'createPerfomTask':
       managerController.createTask(req).then((response) => {
         res.status(200).json(response);
       });
@@ -120,8 +120,12 @@ exports.postApi = (req, res, next) => {
         res.status(200).json(response);
       });
       break;
-
-    case 'approvedTask':
+    case 'dashboardData':
+      managerController.getDashboardGraphData(req).then((response) => {
+        res.status(200).json(response);
+      });
+      break;
+      case 'approvedTask':
     managerController.approvedTask(req).then((response) => {
       res.status(200).json(response);
     });
