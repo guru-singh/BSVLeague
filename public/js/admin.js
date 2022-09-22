@@ -79,7 +79,7 @@ function myDashboardChartData() {
             });
 
             // TOP PERFORMING ZBM
-          
+
             zbmRecords = records.filter(rec => {
                 return rec.Designation === 'ZBM'
             });
@@ -93,31 +93,95 @@ function myDashboardChartData() {
             console.log('TOP PERFORMING ZBM')
             console.table(zbmRecords)
             // TOP PERFORMING RBM
-           let rbmRecords = records.filter(rec => {
+            let rbmRecords = records.filter(rec => {
                 return rec.Designation === 'RBM'
             });
             console.log('TOP PERFORMING RBM')
-            console.table(rbmRecords.slice(0,5));   
+            console.table(rbmRecords.slice(0, 5));
 
             // TOP PERFORMING KAM
             console.log('TOP PERFORMING KAM')
-           let kamRecords = records.filter(rec => {
-            return rec.Designation === 'Sr KAM' || rec.Designation === 'KAM'
-        });
-        console.table(kamRecords.slice(0,5));  
+            let kamRecords = records.filter(rec => {
+                return rec.Designation === 'Sr KAM' || rec.Designation === 'KAM'
+            });
+            console.table(kamRecords.slice(0, 5));
 
-        // TOTAL TASK PERFORMED
-        let unApprovedTaskCount = response.data[1][0].unApprovedTask, 
-            approvedTaskCount = response.data[2][0].ApprovedTask,
-            totalTask = parseInt(approvedTaskCount + unApprovedTaskCount);
-            
-        console.log('Total Task ======> '+ totalTask)
-        console.log('Approved Task ======> '+ approvedTaskCount)
-        console.log('Un Approved Task ======> '+ unApprovedTaskCount)
+            // TOTAL TASK PERFORMED
+            let unApprovedTaskCount = response.data[1][0].unApprovedTask,
+                approvedTaskCount = response.data[2][0].ApprovedTask,
+                totalTask = parseInt(approvedTaskCount + unApprovedTaskCount);
 
-        // task performed on date wise
-        console.log(`task performed on date wise`)
-        console.table(response.data[3])
+            console.log('Total Task ======> ' + totalTask)
+            console.log('Approved Task ======> ' + approvedTaskCount)
+            console.log('Un Approved Task ======> ' + unApprovedTaskCount)
+
+            // task performed on date wise
+
+            console.clear();
+            console.log(`task performed on date wise`)
+            console.table(response.data[3]);
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Month');
+            data.addColumn('number', "Approved Task");
+            data.addColumn('number', "Un-Approved Task");
+            let chartData = [],
+                filterData = [];
+            response.data[3].forEach(rec => {
+                let obj = filterData.find(x => x.dt === rec.dt),
+                    o;
+                if (obj) {
+                    if (rec.isApproved) {
+                        obj.approveCount = rec.count;
+                    } else {
+                        obj.unApproveCount = rec.count;
+                    }
+                }
+                else {
+                    o = {
+                        dt: rec.dt,
+                        approveCount: rec.isApproved ? rec.count : 0,
+                        unApproveCount: !rec.isApproved ? rec.count : 0,
+                    }
+                    filterData.push(o)
+                }
+            });
+
+            console.table(filterData);
+            filterData.forEach(rec => {
+                // console.log(rec)
+                let tmpArr = [];
+                tmpArr.push(rec.dt, rec.approveCount, rec.unApproveCount)
+                chartData.push(tmpArr);
+
+            });
+
+
+            console.log(chartData);
+            data.addRows(chartData);
+
+            var options = {
+                title: 'Task Performed by the team',
+                width: 1500,
+                height: 700,
+                // Gives each series an axis that matches the vAxes number below.
+                series: {
+                    0: { targetAxisIndex: 0 },
+                    1: { targetAxisIndex: 1 }
+                },
+                vAxes: {
+                    // Adds titles to each axis.
+                    0: { title: 'Total No of Task' },
+                   // 1: { title: 'Daylight' }
+                },
+                vAxis: {
+                    viewWindow: {
+                        max: 30
+                    }
+                }
+            };
+
+            var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
 
 
         }).catch((err) => {
@@ -125,5 +189,52 @@ function myDashboardChartData() {
         });
 
 }
+
+// function drawDailyTaskChart() {
+//     // Some raw data (not necessarily accurate)
+//     var data = new google.visualization.DataTable();
+//     data.addColumn('date', 'Month');
+//     data.addColumn('number', "Average Temperature");
+//     data.addColumn('number', "Average Hours of Daylight");
+
+//     data.addRows([
+//         [new Date(2014, 0), -.5, 5.7],
+//         [new Date(2014, 1), .4, 8.7],
+//         [new Date(2014, 2), .5, 12],
+//         [new Date(2014, 3), 2.9, 15.3],
+//         [new Date(2014, 4), 6.3, 18.6],
+//         [new Date(2014, 5), 9, 20.9],
+//         [new Date(2014, 6), 10.6, 19.8],
+//         [new Date(2014, 7), 10.3, 16.6],
+//         [new Date(2014, 8), 7.4, 13.3],
+//         [new Date(2014, 9), 4.4, 9.9],
+//         [new Date(2014, 10), 1.1, 6.6],
+//         [new Date(2014, 11), -.2, 4.5]
+//     ]);
+
+//     var options = {
+//         title: 'Average Temperatures and Daylight in Iceland Throughout the Year',
+//         width: 1500,
+//         height: 700,
+//         // Gives each series an axis that matches the vAxes number below.
+//         series: {
+//             0: { targetAxisIndex: 0 },
+//             1: { targetAxisIndex: 1 }
+//         },
+//         vAxes: {
+//             // Adds titles to each axis.
+//             0: { title: 'Temps (Celsius)' },
+//             1: { title: 'Daylight' }
+//         },
+//         vAxis: {
+//             viewWindow: {
+//                 max: 30
+//             }
+//         }
+//     };
+
+//     var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+//     chart.draw(data, options);
+// }
 
 /* ************************************ My Dashboard ************************************/
