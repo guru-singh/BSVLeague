@@ -51,8 +51,8 @@ function myDashboardChartData() {
             var northPoints = 0,
                 southPoints = 0,
                 eastPoints = 0,
-                westPoints = 0
-                ;
+                westPoints = 0;
+                
             records.filter(rec => {
                 switch (rec.zoneName) {
                     case _NORTH:
@@ -83,10 +83,47 @@ function myDashboardChartData() {
             zbmRecords = records.filter(rec => {
                 return rec.Designation === 'ZBM'
             });
-            console.log('total Points By North team ' + northPoints)
-            console.log('total Points By south team ' + southPoints)
-            console.log('total Points By East team ' + eastPoints)
-            console.log('total Points By West team ' + westPoints)
+
+            console.log('total Points By North team ' + northPoints);
+            console.log('total Points By south team ' + southPoints);
+            console.log('total Points By East team ' + eastPoints);
+            console.log('total Points By West team ' + westPoints);
+
+            // $('#southPoints').text(southPoints);
+            // $('#eastPoints').text(eastPoints);
+            // $('#northPoints').text(northPoints);
+            // $('#westPoints').text(westPoints);
+
+            let zoneData = [
+                {zone:'south', order:0, value:southPoints},
+                {zone:'east', order:0, value:eastPoints},
+                {zone:'north', order:0, value:northPoints},
+                {zone:'west', order:0, value:westPoints}
+            ];
+
+            let sortedZoneData = zoneData.sort(function (a, b) {
+                return b.value - a.value;
+              });
+
+            console.log('sortedZoneData', sortedZoneData);
+
+            let zoneFilteredData = [];
+            let zoneIndx = 0;
+            for(let zone of zoneData) {
+                zoneIndx = zoneIndx + 1;
+                zoneFilteredData.push({zone: zone.zone, order:'order-' + zoneIndx, value:zone.value});
+            }
+
+            console.log(zoneFilteredData);
+            let totalPoints = 0;
+
+            for(let z of zoneFilteredData) {
+                totalPoints = totalPoints + z.value;
+                $(`.${z.zone}`).find('span').text(z.value);
+                $(`.${z.zone}`).addClass(`${z.order}`);
+            }
+
+            $('#toppzbm').text(totalPoints);
 
             // task performed as my collegues
             // TOP PERFORMING ZBM
@@ -104,8 +141,39 @@ function myDashboardChartData() {
             let kamRecords = records.filter(rec => {
                 return rec.Designation === 'Sr KAM' || rec.Designation === 'KAM'
             });
+
+            const topKamName = kamRecords.reduce(function(prev, current) {
+                return (prev.pointsEarned > current.pointsEarned) ? prev : current
+            });
+            
+            const topRbmName = rbmRecords.reduce(function(prev, current) {
+                return (prev.pointsEarned > current.pointsEarned) ? prev : current
+            });
+
+            $('#toppkam').text(topRbmName.firstName);
+            $('#toprbmname').text(topRbmName.firstName);
+
             console.table(kamRecords.slice(0, 5));
 
+            function getKamTotalPotentialEarned() {
+                var total = 0;
+                for (var i = 0; i < kamRecords.slice(0, 5).length; i++) {
+                    total = total + kamRecords.slice(0, 5)[i].pointsEarned;
+                }
+                return total;
+            }
+
+            function getRbmTotalPotentialEarned() {
+                var total = 0;
+                for (var i = 0; i < rbmRecords.slice(0, 5).length; i++) {
+                    total = total + rbmRecords.slice(0, 5)[i].pointsEarned;
+                }
+                return total;
+            }
+
+            $('#toppkam').text(getKamTotalPotentialEarned());
+            $('#topprbm').text(getRbmTotalPotentialEarned());
+            
             // TOTAL TASK PERFORMED
             let unApprovedTaskCount = response.data[1][0].unApprovedTask,
                 approvedTaskCount = response.data[2][0].ApprovedTask,
@@ -117,7 +185,7 @@ function myDashboardChartData() {
 
             // task performed on date wise
 
-            console.clear();
+           // console.clear();
             console.log(`task performed on date wise`)
             console.table(response.data[3]);
             var data = new google.visualization.DataTable();

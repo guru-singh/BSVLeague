@@ -21,25 +21,55 @@
         </div>
 
         <div class="main-content">
-            <div class="task-heading-wrapper">
-                <h1>My Dashboard</h1>
+            <div class="box-wrapper">
+                <div class="task-box">
+                    <div class="task-heading-wrapper">
+                        <h1>My Dashboard</h1>
+                    </div>
+                    <div class="task-content">
+                        <div id="divTotalTask"></div>
+                        <div id="divApprovedTask"></div>
+                        <div id="divPendingTask"></div>
+                        <div id="divPointsEarned"></div>
+                        <div id="divPointsYetEarned"></div>
+                    </div>
+                    
+                </div>
+                
+                <div class="task-box">
+                    <div class="task-heading-wrapper">
+                        <h1>My Team Dashboard</h1>
+                    </div>
+                    <div class="task-content">
+                        <div id="divMyTeamTotalTask"></div>
+                        <div id="divMyTeamApprovedTask"></div>
+                        <div id="divMyTeamPendingTask"></div>
+                        <div id="divMyTeamPointsEarned"></div>
+                        <div id="divMyTeamPointsYetEarned"></div>
+                    </div>
+                </div>
             </div>
-            <div id="divTotalTask"></div>
-            <div id="divApprovedTask"></div>
-            <div id="divPendingTask"></div>
-            <div id="divPointsEarned"></div>
-            <div id="divPointsYetEarned"></div>
+            
 
-            <div class="task-heading-wrapper">
-                <h1>My team Dashboard</h1>
-            </div>
-            <div id="divMyTeamTotalTask"></div>
-            <div id="divMyTeamApprovedTask"></div>
-            <div id="divMyTeamPendingTask"></div>
-            <div id="divMyTeamPointsEarned"></div>
-            <div id="divMyTeamPointsYetEarned"></div>
+            
+
+            <table class="table table-bordered" id="showTabularData">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Points Earned</th>
+                        <th>Task Performed</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
         </div>
+
         <div id="chart_div"></div>
+
+       
+        
     </main>
 
     <div class="loader-wrapper-login none">

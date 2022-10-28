@@ -59,4 +59,53 @@
   }
 }
 
+#showTabularData {
+  background-color: #fff;
+  margin-bottom: 0;
+  margin-top: 30px;
+}
+
+.box-wrapper {
+display: flex;
+display: -webkit-flex;
+justify-content: center;
+align-items: center;
+margin-top: 30px;
+}
+
+.task-box {
+  background-color: #fff;
+  box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.4);
+  -moz-box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.4);
+  -webkit-box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.4);
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  width: 300px;
+min-height: 1px;
+padding: 20px 20px;
+}
+
+.task-box:first-child {
+  margin-right: 10px;
+}
+
+.task-box:last-child {
+  margin-left: 10px;
+}
+
+.box-wrapper .task-heading-wrapper {
+  padding: 0 0;
+  margin: 0 0;
+}
+
+.box-wrapper .task-heading-wrapper h1 {
+  margin-bottom: 10px;
+font-size: 20px;
+}
+
+.task-box .task-content > div {
+  margin-bottom: 3px;
+}
+
 /*# sourceMappingURL=app.css.map */

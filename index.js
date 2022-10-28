@@ -32,6 +32,10 @@ app.use(frontEndRoutes);
 app.use(adminRoutes);
 app.use(managerRoutes);
 
+app.use('/', function(req, res) {
+  res.sendFile(`${path.dirname(process.mainModule.filename)}/public/views/manager/login.html`);
+});
+
 app.listen(process.env.PORT || 2000, () => {
   console.clear();
   console.log("Application listening on port 2000!");

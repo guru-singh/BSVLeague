@@ -275,11 +275,12 @@ function loadMyDashboad() {
             console.log('Pending Task: ' + PendingTask.length);
             console.log('Points Earned: ' + PointsEarned);
             console.log('Points Yet to Earned: ' + PointsYetToEarn);
-            $('#divTotalTask').html('Total Task: ' + totalTask);
-            $('#divApprovedTask').html('Approved Task: ' + ApprovedTask.length);
-            $('#divPendingTask').html('Pending Task: ' + PendingTask.length);
-            $('#divPointsEarned').html('Points Earned: ' + PointsEarned);
-            $('#divPointsYetEarned').html('Points Yet to Earn: ' + PointsYetToEarn);
+
+            $('#divTotalTask').html('Total Task: ' + `<b>${totalTask}</b>` );
+            $('#divApprovedTask').html('Approved Task: ' + `<b>${ApprovedTask.length}</b>` );
+            $('#divPendingTask').html('Pending Task: ' + `<b>${PendingTask.length}</b>` );
+            $('#divPointsEarned').html('Points Earned: ' + `<b>${PointsEarned}</b>` );
+            $('#divPointsYetEarned').html('Points Yet to Earn: ' + `<b>${PointsYetToEarn}</b>`);
             console.log('****************************************************')
 
 
@@ -320,11 +321,11 @@ function loadMyDashboad() {
 
 
 
-                $('#divMyTeamTotalTask').html('Total Task: ' + taskList.length);
-                $('#divMyTeamApprovedTask').html('Approved Task: ' + myTeamApprovedTask.length);
-                $('#divMyTeamPendingTask').html('Pending Task: ' + myTeamPendingTask.length);
-                $('#divMyTeamPointsEarned').html('Points Earned: ' + myTeamApprovedTaskEarnedPoints);
-                $('#divMyTeamPointsYetEarned').html('Points Yet to Earn: ' + myTeamPointsYetToEarn);
+                $('#divMyTeamTotalTask').html('Total Task: ' +  `<b>${taskList.length}</b>`);
+                $('#divMyTeamApprovedTask').html('Approved Task: ' + `<b>${myTeamApprovedTask.length}</b>` );
+                $('#divMyTeamPendingTask').html('Pending Task: ' + `<b>${myTeamPendingTask.length}</b>` );
+                $('#divMyTeamPointsEarned').html('Points Earned: ' + `<b>${myTeamApprovedTaskEarnedPoints}</b>` );
+                $('#divMyTeamPointsYetEarned').html('Points Yet to Earn: ' + `<b>${myTeamPointsYetToEarn}</b>` );
                 console.log('****************************************************')
 
 
@@ -382,7 +383,23 @@ function myDashboardChartData() {
             };
 
             var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
-            chart.draw(data, options);
+            //chart.draw(data, options);
+
+            console.log('Chart Data',chartData);
+
+            let tabularData = '';
+
+            console.log('Chart Data',chartData.slice(1));
+
+            for(let data of chartData.slice(1)) {
+                tabularData = tabularData + `<tr>
+                                                <td>${data[0]}</td>
+                                                <td>${data[1]}</td>
+                                                <td>${data[2]}</td>
+                                            </tr>`;
+            }
+
+            $('#showTabularData tbody').html(tabularData);
 
         }).catch((err) => {
             console.log(err);

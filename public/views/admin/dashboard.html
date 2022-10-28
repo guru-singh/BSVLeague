@@ -9,16 +9,62 @@
     <link rel="stylesheet" href="css/admin.css" />
 </head>
 
-<body>
+<body class="dashboard">
     <main class="admin-main-wrapper">
-        <header id="adminHeader">
-
-        </header>
+        <header id="adminHeader"></header>
 
         <div class="main-content">
-            <h1>Dashboard</h1>
-            <div id="chart_div"></div>
-            <footer id="adminFooter"></footer>
+
+            <div class="center-layout">
+                <div>
+                    <div class="dashboard-logo">
+                        <img src="img/bsv-logo.png" alt="logo" class="img-responsive" />
+                    </div>
+                    <!-- <div id="chart_div"></div> -->
+                    <ul class="points-wrapper">
+                        <li class="south">
+                            <img src="img/South-Heros.png" alt="bg" class="img-responsive name-img" />
+                            <span class="text" id="southPoints">0</span>
+                            <img src="img/points-bg.png" alt="bg" class="img-responsive" />
+                        </li>
+                        <li class="east">
+                            <img src="img/East-Hunters.png" alt="bg" class="img-responsive name-img" />
+                            <span class="text" id="eastPoints">0</span>
+                            <img src="img/points-bg.png" alt="bg" class="img-responsive" />
+                        </li>
+                        <li class="west">
+                            <img src="img/West-Eagles.png" alt="bg" class="img-responsive name-img" />
+                            <span class="text" id="westPoints">0</span>
+                            <img src="img/points-bg.png" alt="bg" class="img-responsive" />
+                        </li>
+                        <li class="north">
+                            <img src="img/North-Warriors.png" alt="bg" class="img-responsive name-img" />
+                            <span class="text" id="northPoints">0</span>
+                            <img src="img/points-bg.png" alt="bg" class="img-responsive" />
+                        </li>
+                    </ul>
+
+                    <ul class="points-wrapper-footer">
+                        <li>
+                            <span class="points" id="toppkam">0</span>
+                            <img src="img/Top-Performing-KAM.png" alt="bg" class="img-responsive" />
+                            <span class="name" id="topkamname">Shiv Kar</span>
+                        </li>
+                        <li>
+                            <span class="points" id="toppzbm">0</span>
+                            <img src="img/Total-Points.png" alt="bg" class="img-responsive" />
+                        </li>
+                        <li>
+                            <span class="points" id="topprbm">0</span>
+                            <img src="img/Top-Performing-RBM.png" alt="bg" class="img-responsive" />
+                            <span class="name" id="toprbmname">Omkar</span>
+                        </li>
+                    </ul>
+
+                    <footer id="adminFooter"></footer>
+                </div>
+            </div>
+
         </div>
 
         

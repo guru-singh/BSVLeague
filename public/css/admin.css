@@ -7198,6 +7198,11 @@ body {
   background-position: center;
   background-size: cover;
 }
+
+body.dashboard {
+  background-image: url(../img/dashboard.jpg);
+}
+
 body.flex {
   display: flex;
   display: -webkit-flex;
@@ -7396,5 +7401,137 @@ body.overflow-hidden {
   display: inline-block;
   width: 20px;
 }
+
+.main-content {
+    height: 100vh;
+    position: relative;
+}
+
+.dashboard-logo {
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 3%;
+}
+
+.dashboard-logo > img {
+  display: inline-block;
+}
+
+.points-wrapper {
+  list-style: none;
+  padding: 0 0;
+  margin: 0 0;
+  display: flex;
+  display: -webkit-flex;
+}
+
+.points-wrapper > li {
+  position: relative;
+}
+
+.points-wrapper > li > .name-img {
+  position: absolute;
+  width: 80%;
+  transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  top: 10%;
+  left: 50%;
+} 
+
+.points-wrapper > li > .text {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  font-size: 50px;
+  font-weight: bold;
+  background: -webkit-linear-gradient(#e7e6eb, #626063);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'ExtraBold';
+}
+
+.points-wrapper-footer {
+  list-style: none;
+  padding: 0 0;
+  margin: 0 0;
+  display: flex;
+  display: -webkit-flex;
+  margin-top: 20px;
+}
+
+.points-wrapper-footer > li {
+  position: relative;
+}
+
+.points-wrapper-footer > li:nth-child(2) img {
+  width: 500px;
+}
+
+.points-wrapper-footer > li .points {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  font-size: 50px;
+  font-weight: bold;
+  color: #000;
+  font-family: 'ExtraBold';
+}
+
+.points-wrapper-footer > li .name {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  font-family: 'ExtraBold';
+  width: 100%;
+  text-align: center;
+}
+
+.points-wrapper-footer > li:nth-child(2) .points {
+  top: 55%;
+}
+
+.center-layout {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+}
+
+.order-1 {
+  order: 1;
+}
+
+.order-2 {
+  order: 2;
+}
+
+.order-3 {
+  order: 3;
+}
+
+.order-4 {
+  order: 4;
+}
+
 
 /*# sourceMappingURL=admin.css.map */
