@@ -26,12 +26,14 @@ const taskList = () => {
                                 <td>${elem.isDisable ? `Yes`: `No`}</td>
                                 <td>${elem.createdDate}</td>
                                 <td>
-                                    <a class="edit-delete" href="/task-edit/${elem.taskId}">
+                                    <div class="action-td">
+                                        <a class="edit-delete" href="/task-edit/${elem.taskId}">
                                         <img src="../img/edit.png" alt="edit" class="img-responsive" />
-                                    </a> 
-                                    <a class="edit-delete" href="javascript:void(0);" onclick="deleteTask(${elem.taskId},'${elem.taskName}', '${elem.taskDescp}', ${elem.taskPoint})">
-                                        <img src="../img/delete.png" alt="edit" class="img-responsive" />
-                                    </a> 
+                                        </a> 
+                                        <a class="edit-delete" href="javascript:void(0);" onclick="deleteTask(${elem.taskId},'${elem.taskName}', '${elem.taskDescp}', ${elem.taskPoint})">
+                                            <img src="../img/delete.png" alt="edit" class="img-responsive" />
+                                        </a>
+                                    </div>
                                 </td>
                             </tr>
                             `;

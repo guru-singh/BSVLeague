@@ -7533,5 +7533,17 @@ body.overflow-hidden {
   order: 4;
 }
 
+.action-td {
+  width: 60px;
+}
+
+.action-td > a {
+  display: inline-block;
+}
+
+.action-td > a:first-child {
+  margin-right: 10px;
+}
+
 
 /*# sourceMappingURL=admin.css.map */

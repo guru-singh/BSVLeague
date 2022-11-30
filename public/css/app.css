@@ -108,4 +108,13 @@ font-size: 20px;
   margin-bottom: 3px;
 }
 
+.table > thead:first-child > tr:first-child > th {
+  background-color: #00b6cb;
+  color: #fff;
+  border-bottom: 0;
+}
+
+
+
+
 /*# sourceMappingURL=app.css.map */
